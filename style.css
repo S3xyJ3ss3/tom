@@ -1,0 +1,32 @@
+html {
+  font-size: 16px;
+}
+
+a {
+  color: #4d8fdb; 
+}
+a:visited {
+  color: #d8a2ec;
+}
+
+main {
+  color: #404040;
+  font-family: 'Roboto', sans-serif;
+}
+main h1 {
+  text-align: center;
+  margin: 4rem 0 4rem;
+}
+
+@media screen and (min-width: 38em) { /* 608px */
+  main {
+    font-size: 1.2rem; /* 19.2px */
+  }
+}
+
+@media screen and (min-width: 48em) { /* 768px */
+  main {
+    width: 47rem; /* 752px */
+    margin: 0 auto;
+  }
+}

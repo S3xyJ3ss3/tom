@@ -11,9 +11,41 @@ function for loading text
 function for loading in general
 
 */
- 
+
+// cache of blobs 
+const blobs = {};
+
+// called when dom content loaded
 function init() {
-  console.log("test!");
+
+  // create box for floating images/text to appear in
+  const box = document.createElement("div");
+  box.id = "fbox";
+  document.body.appendChild(box);
+
+  // find floater links and add listeners to them
+  const flinks = document.querySelectorAll("a.floater");
+  for (let i = 0; i < flinks.length; i++) {
+    flisten(flinks[i], box);
+  }
+}
+
+// add event listeners to all the floater links
+function flisten(link, box) {
+   
+  link.addEventListener("mousemove", event => {
+
+    box.style.display = "block";
+    box.style.left = event.clientX + "px";
+    box.style.top = event.clientY + "px";
+
+    console.log(event);
+  });
+
+  link.addEventListener("mouseout", event => {
+
+    box.style.display = "none";
+  });
 }
 
 window.addEventListener("DOMContentLoaded", init);

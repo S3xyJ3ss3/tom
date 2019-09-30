@@ -1,5 +1,9 @@
 html {
-  font-size: 16px;
+  height: 100%;
+  display: grid;
+}
+body {
+  margin: auto;
 }
 
 a {
@@ -10,12 +14,17 @@ a:visited {
 }
 
 main {
+  padding: 0.5rem;
+  
   color: #404040;
   font-family: 'Roboto', sans-serif;
+
+  max-width: 47rem;
 }
+
 main h1 {
-  text-align: center;
   margin: 4rem 0 4rem;
+  text-align: center;
 }
 
 @media screen and (min-width: 38em) { /* 608px */
@@ -24,9 +33,10 @@ main h1 {
   }
 }
 
-@media screen and (min-width: 48em) { /* 768px */
-  main {
-    width: 47rem; /* 752px */
-    margin: 0 auto;
-  }
+div#fbox {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid red;
 }
+

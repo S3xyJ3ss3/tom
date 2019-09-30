@@ -1,3 +1,4 @@
+/* centre body on page; if body is taller than page put at top */
 html {
   height: 100%;
   display: grid;
@@ -6,6 +7,7 @@ body {
   margin: auto;
 }
 
+/* link colours */
 a {
   color: #4d8fdb; 
 }
@@ -13,30 +15,39 @@ a:visited {
   color: #d8a2ec;
 }
 
+/* normal */
 main {
   padding: 0.5rem;
-  
   color: #404040;
   font-family: 'Roboto', sans-serif;
-
   max-width: 47rem;
 }
-
-main h1 {
-  margin: 4rem 0 4rem;
-  text-align: center;
-}
-
 @media screen and (min-width: 38em) { /* 608px */
   main {
     font-size: 1.2rem; /* 19.2px */
   }
 }
-
-div#fbox {
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  border: 1px solid red;
+main h1 {
+  margin: 4rem 0 4rem;
+  text-align: center;
 }
 
+/* specific to disapproval.html but should remain
+ * in main css file b/c will load to index as floater */
+.script {
+  font-family: 'Roboto Mono', monospace;
+}
+.script strong {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.script p:not(.scene) strong {
+  display: block;
+  margin: 1em 40% 0 40%;
+}
+.script p:not(.scene) {
+  margin: 1em 10%;
+}
+.script span {
+  display: none;
+}

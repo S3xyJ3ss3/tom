@@ -24,8 +24,8 @@ types
 
 **desktop**
 - images open on hover at mouse position
-- short text e.g. 'parents disapproval' opens similarly
-- long text e.g. 'cats' opens on new page
+- short text e.g. 'parents disapproval' and 'cats' open similarly
+- long text i.e. the comedy set opens on new page
 
 **mobile**
 - images fill screen with darkened border on tap
@@ -38,8 +38,14 @@ links to images and external text are only loaded when user FIRST hovers over th
 - not more than once: after initial load they are saved as blobs in user's browser (`console.log(blobs)` to see what i mean)
 - text is loaded from other page so edits need to be made in one location only
 
-# disapproval.html
+# parents-disapproval.html
 script formatting
+changed scene context to make it more script-like
+changed "mum" to "mother" for perceived increase in comedic value
 
-
+# comedy.html
+same idea as on index.html except:
+- all text stored within page i.e. no need for promises/http requests
+- stronger visual distinction between actual comedy set and comments thereon
+- but ALSO stronger link: needs to be clear how the comments interact with the set
 

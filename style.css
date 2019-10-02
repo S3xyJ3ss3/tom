@@ -34,20 +34,20 @@ main h1 {
 
 /* specific to disapproval.html but should remain
  * in main css file b/c will load to index as floater */
-.script {
+#script {
   font-family: 'Roboto Mono', monospace;
 }
-.script strong {
+#script strong {
   text-transform: uppercase;
   font-weight: 400;
 }
-.script p:not(.scene) strong {
+#script p:not(.scene) strong {
   display: block;
   margin: 1em 40% 0 40%;
 }
-.script p:not(.scene) {
+#script p:not(.scene) {
   margin: 1em 10%;
 }
-.script span {
+#script span {
   display: none;
 }

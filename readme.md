@@ -6,10 +6,16 @@ github.io
 - never need to worry about editing/playing around because git has in-built system for saving previous versions forever, i.e. is easy to revert
 - you will need to learn git but doing so is also valuable
 
+# structuring <head>
+get the html right and then work with the others
+<main> doesn't seem to be right
+
 # index.html 
 link names and accessibility:
 - link text should make sense on its own because some people use contextless list of links as part of their accessibility needs especially visually impaired people using screen readers
-- obviously not to the extent of ruining the jokes: only where it's possible
+- not to the extent of ruining the jokes: only where it's possible
+
+do you need the title?
 
 ## links
 types

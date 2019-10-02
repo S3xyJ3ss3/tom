@@ -1,10 +1,16 @@
 /* centre body on page; if body is taller than page put at top */
-html {
+html, body {
   height: 100%;
-  display: grid;
 }
 body {
-  margin: auto;
+  display: grid;
+  
+  color: #404040;
+}
+@media screen and (min-width: 38em) { /* 608px */
+  body {
+    font-size: 1.2rem; /* 19.2px */
+  }
 }
 
 /* link colours */
@@ -15,39 +21,62 @@ a:visited {
   color: #d8a2ec;
 }
 
-/* normal */
+/* <main> and <nav> are two main elements on pages that aren't index.html */
 main {
-  padding: 0.5rem;
-  color: #404040;
   font-family: 'Roboto', sans-serif;
+  margin: auto;
   max-width: 47rem;
 }
-@media screen and (min-width: 38em) { /* 608px */
-  main {
-    font-size: 1.2rem; /* 19.2px */
-  }
+nav {
+  font-family: 'Roboto-Mono', monospace; /* monospace appears much smaller?? */
+  margin: 2rem 0;
 }
+
+/* index.html */
 main h1 {
   margin: 4rem 0 4rem;
   text-align: center;
 }
+/* floating box */
+#fbox {
+  display: none;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid red;
+}
 
-/* specific to disapproval.html but should remain
- * in main css file b/c will load to index as floater */
-#script {
+/* disapproval.html script formatting
+ * (also appears on index.html) */
+.script {
   font-family: 'Roboto Mono', monospace;
 }
-#script strong {
+.script strong {
   text-transform: uppercase;
   font-weight: 400;
 }
-#script p:not(.scene) strong {
+.script p:not(.scene) strong {
   display: block;
-  margin: 1em 40% 0 40%;
+  margin: 1rem 40% 0 40%;
 }
-#script p:not(.scene) {
-  margin: 1em 10%;
+.script p:not(.scene) {
+  margin: 1rem 10%;
 }
-#script span {
+.script span {
   display: none;
 }
+
+/* comedy.html */
+.redacted {
+  background-color: black;
+}
+a[id^=r] {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.3em;
+  font-size: 0.8em;
+}
+
+
+
+

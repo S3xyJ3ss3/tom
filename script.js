@@ -1,16 +1,30 @@
-/*
+/* comedy.html
+ */
 
-init
-- add event listeners
-  - deal with images and text as much together as you can
+// javascript
+//   replace links with pictures of tom's face inside larger div 
+//   add event listeners to wider divs
+//   event listeners:
+//     mouseover: div expands, first to the left and then down, bringing the image
+//       of tom's face with it
+//     after expansion then words fade in
+//     tom's face should poke out on the left
+// css
+//   divs are size of their contents until they take up almost full page 
 
-global blobs
 
-function for loading images
-function for loading text
-function for loading in general
 
-*/
+
+
+
+
+
+
+
+
+
+/* index.html
+ */
 
 // cache of blobs 
 const blobs = {};

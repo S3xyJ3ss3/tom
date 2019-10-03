@@ -70,13 +70,36 @@ main h1 {
 .redacted {
   background-color: black;
 }
-a[id^=r] {
+/* links to footnotes
+ * works because when js kicks in it changes href to "#" */
+a[href^="#n"] {
   vertical-align: baseline;
   position: relative;
   top: -0.3em;
   font-size: 0.8em;
 }
+/* below is just for if javascript is enabled */
+/* animation stuff */
+@keyframes open {
+  0% {opacity: 0; margin-left: -20px}
+  100% {opacity: 1; margin-left: 0px}
+}
+.js details {
+  display: inline-block;
+  position: relative;
+}
+.js img {
+  position: absolute;
+  top: 0; right: 0; 
+}
+.js details[open] summary ~ * {
+  animation: open .5s ease-in-out;
+}
 
 
+img {
+  width: 2rem;
+  height: 2rem;
+}
 
 

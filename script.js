@@ -1,3 +1,19 @@
+/* global stuff
+ */
+
+// selectors shorthand
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
+// remove element
+const rm = el => el.parentNode.removeChild(el);
+
+
+/* overall init
+ */
+function index() {
+}
+
 /* comedy.html
  */
 
@@ -12,11 +28,37 @@
 // css
 //   divs are size of their contents until they take up almost full page 
 
+function comedy() {
 
+  // attach .js class to main to trigger css animations
+  $("main").classList.add("js");
 
+  // remove <hr>s
+  $$("hr").forEach(rm);
 
+  // image outerhtml
+  const image = `<img src="o.jpg">`; 
 
+  // add image to header
+  $("#intro").innerHTML += image;
 
+  // remove notes into an array
+   notes = rm($("#notes")).children;
+
+  // replace each link to note with popup
+  $$("a[id^=r]").forEach((a, i) => a.outerHTML = `
+    <details>
+      <summary>${image}</summary> 
+      ${
+        notes[i].outerHTML
+      }
+    </details>
+  `);
+
+  // .replace(/\[([1-10]|back)]/,"")
+}
+
+let notes;
 
 
 
@@ -26,6 +68,7 @@
 /* index.html
  */
 
+/*
 // cache of blobs 
 const blobs = {};
 
@@ -61,74 +104,8 @@ function flisten(link, box) {
     box.style.display = "none";
   });
 }
-
-window.addEventListener("DOMContentLoaded", init);
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-function init() {
-  addFloaters();
-}
-
-const blobs = {};
-
-
-
-function addFloaters() {
-  const imageLinks = document.querySelectorAll("a.image");
-  for (let i = 0; i < imageLinks.length; i++) {
-    const a = imageLinks[i];
-    a.addEventListener("mouseover", () => {
-      const href = a.getAttribute("href"); 
-
-      if (href in blobs) {
-
-      // add image whene it loads
-      const image = new Image();
-      imgLoad(href)
-        .then(response => {
-	  const imageURL = window.URL.createObjectURL(response);
-	  image.src = imageURL;
-	  a.appendChild(image);
-	}, error => {
-	  console.log(error);
-	})
-    });
-  }
-}
-
-function imgLoad(url) {
-  return new Promise(function(resolve, reject) {
-    const request = new XMLHttpRequest();
-    request.open("GET", url);
-    request.responseType = "blob";
-    request.onload = () => {
-      if (request.status === 200) {
-	resolve(request.response);
-      } else {
-	reject(Error("Image didn't load successfully; error code:" + request.statusText));
-      }
-    };
-    request.onerror = () => {
-      reject(Error("Network error."));
-    };
-    request.send();
-  });
-}
-
-window.addEventListener("DOMContentLoaded", init);
+  
+const also = "O Captain! My Captain! A grainy photo of the author, peeking out sheepishly from behind a red curtain. He appears to be wearing a school blazer."
 
 */
+

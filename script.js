@@ -33,32 +33,21 @@ function comedy() {
   // attach .js class to main to trigger css animations
   $("main").classList.add("js");
 
-  // remove <hr>s
-  $$("hr").forEach(rm);
-
-  // image outerhtml
-  const image = `<img src="o.jpg">`; 
-
-  // add image to header
-  $("#intro").innerHTML += image;
-
   // remove notes into an array
-   notes = rm($("#notes")).children;
+  const notes = rm($("#notes")).children;
 
-  // replace each link to note with popup
+  // replace each link to note with <details> block
   $$("a[id^=r]").forEach((a, i) => a.outerHTML = `
-    <details>
-      <summary>${image}</summary> 
-      ${
+    <details class="note">
+      <summary class="face"></summary>${
         notes[i].outerHTML
-      }
-    </details>
+          .replace(/ <a(.*)<\/a>/,"")
+          .replace(/\[([0-9]|10)] /,"")
+      }</details>
   `);
 
-  // .replace(/\[([1-10]|back)]/,"")
 }
 
-let notes;
 
 
 
@@ -76,8 +65,8 @@ const blobs = {};
 function init() {
 
   // create box for floating images/text to appear in
-  const box = document.createElement("div");
-  box.id = "fbox";
+    const box = document.createElement("aside");
+    box.id = "fbox";
   document.body.appendChild(box);
 
   // find floater links and add listeners to them

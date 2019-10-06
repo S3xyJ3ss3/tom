@@ -1,16 +1,22 @@
-/* centre body on page; if body is taller than page put at top */
+/*
+    all pages
+*/
+
 html, body {
   height: 100%;
 }
 body {
   display: grid;
-  
   color: #404040;
 }
 @media screen and (min-width: 38em) { /* 608px */
   body {
     font-size: 1.2rem; /* 19.2px */
   }
+}
+main, article {
+  max-width: 47rem;
+  margin: auto;
 }
 
 /* link colours */
@@ -21,24 +27,26 @@ a:visited {
   color: #d8a2ec;
 }
 
-/* <main> and <nav> are two main elements on pages that aren't index.html */
-main {
-  font-family: 'Roboto', sans-serif;
-  margin: auto;
-  max-width: 47rem;
-}
+/* <nav> on all pages except index */
 nav {
-  font-family: 'Roboto-Mono', monospace; /* monospace appears much smaller?? */
-  margin: 2rem 0;
+  font-family: "Roboto-Mono", monospace; 
 }
 
-/* index.html */
-main h1 {
+
+/* 
+    index.html
+*/
+
+main#index {
+  font-family: "Roboto", sans-serif;
+}
+#index h1 {
   margin: 4rem 0 4rem;
   text-align: center;
 }
+
 /* floating box */
-#fbox {
+aside#fbox {
   display: none;
   position: absolute;
   width: 2rem;
@@ -46,60 +54,134 @@ main h1 {
   border: 1px solid red;
 }
 
-/* disapproval.html script formatting
- * (also appears on index.html) */
-.script {
-  font-family: 'Roboto Mono', monospace;
+
+/* 
+    parents-disapproval.html
+*/
+
+/* screenplay-like formatting */
+article#disapproval {
+  font-family: "Roboto Mono", monospace;
 }
-.script strong {
+#disapproval strong {
   text-transform: uppercase;
   font-weight: 400;
 }
-.script p:not(.scene) strong {
+/* any <p> that is direct descendent of <article>; not in <header> i.e. not scene direction */
+#disapproval > p strong {
   display: block;
   margin: 1rem 40% 0 40%;
 }
-.script p:not(.scene) {
+#disapproval > p {
   margin: 1rem 10%;
 }
-.script span {
+#disapproval span {
   display: none;
 }
 
-/* comedy.html */
-.redacted {
+
+/*
+    comedy.html
+*/
+
+/* for no javascript */
+main#comedy header,
+#comedy aside {
+  font-family: "Roboto", sans-serif;
+}
+#comedy a {
+  color: #8d3e33; /* maroon */
+}
+
+#comedy figure.face,
+#comedy summary.face {
+  background-image: url("o-captain.jpg");
+  background-position: center;
+}
+
+/* targets all except second within <main> */
+#comedy hr:first-of-type {
+  display: none;
+}
+
+#comedy header,
+#comedy header figure,
+#comedy hr {
+  border-color: #8d3e33; /* maroon */
+}
+#comedy header {
+  position: relative;
+  margin: 10.5rem -1rem 0;
+  padding: 1rem 1rem 0;
+  border-style: solid none;
+  border-width: 0.2rem;
+  font-size: 1.1em;
+}
+@media screen and (min-width: 52em) {
+  #comedy header {
+    border-style: solid;
+    border-radius: 1rem;
+  }
+}
+#comedy header figure {
+  position: absolute;
+  top: 0; left: 50%;
+  width: 10rem;
+  height: 10rem;
+  transform: translate(-5rem, -9.5rem);
+  margin: 0;
+  border-style: solid;
+  border-width: 0.3rem;
+  border-radius: 50%;
+  background-size: 120%;
+}
+#comedy header em {
+  font-style: normal;
+}
+
+#comedy article {
+  font-family: "Roboto Slab", serif;
+  margin: 0 0.5rem;
+}
+/* [redacted] blackout */
+#comedy article mark {
   background-color: black;
 }
-/* links to footnotes
- * works because when js kicks in it changes href to "#" */
-a[href^="#n"] {
+/* links to footnotes */
+#comedy article a {
   vertical-align: baseline;
   position: relative;
   top: -0.3em;
   font-size: 0.8em;
 }
-/* below is just for if javascript is enabled */
-/* animation stuff */
+
+
+
+/* when javascript kicks in, it adds a .js class to main; the following is only for if javascript kicks in
+.js details.note {
+  display: inline-block;
+  position: relative;
+}
+/* overwritten for top 
+.js .face {
+  position: absolute;
+  top: 0; left: 0; 
+}
 @keyframes open {
   0% {opacity: 0; margin-left: -20px}
   100% {opacity: 1; margin-left: 0px}
 }
-.js details {
-  display: inline-block;
-  position: relative;
-}
-.js img {
-  position: absolute;
-  top: 0; right: 0; 
-}
+/* everything after summary in details 
 .js details[open] summary ~ * {
   animation: open .5s ease-in-out;
 }
-
-
-img {
+.js details {
+  border: 0.2rem solid #8d3e33;
+  border-radius: 10px;
+  padding: 0 1rem;
+}
+/* summary.face and div.face
+.js .face {
   width: 2rem;
   height: 2rem;
 }
-
-

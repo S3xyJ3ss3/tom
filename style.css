@@ -9,13 +9,13 @@ body {
   display: grid;
   color: #404040;
 }
-@media screen and (min-width: 38em) { /* 608px */
+@media screen and (min-width: 600px) { /* 608px */
   body {
-    font-size: 1.2rem; /* 19.2px */
+    font-size: 19px;
   }
 }
 main, article {
-  max-width: 47rem;
+  max-width: 750px;
   margin: auto;
 }
 
@@ -41,7 +41,7 @@ main#index {
   font-family: "Roboto", sans-serif;
 }
 #index h1 {
-  margin: 4rem 0 4rem;
+  margin: 60px 0 60px;
   text-align: center;
 }
 
@@ -49,14 +49,14 @@ main#index {
 aside#fbox {
   display: none;
   position: absolute;
-  width: 2rem;
-  height: 2rem;
+  width: 30px;
+  height: 30px;
   border: 1px solid red;
 }
 
 
 /* 
-    parents-disapproval.html
+    disapproval.html
 */
 
 /* screenplay-like formatting */
@@ -70,10 +70,10 @@ article#disapproval {
 /* any <p> that is direct descendent of <article>; not in <header> i.e. not scene direction */
 #disapproval > p strong {
   display: block;
-  margin: 1rem 40% 0 40%;
+  margin: 1em 40% 0 40%;
 }
 #disapproval > p {
-  margin: 1rem 10%;
+  margin: 1em 10%;
 }
 #disapproval span {
   display: none;
@@ -93,47 +93,50 @@ main#comedy header,
   color: #8d3e33; /* maroon */
 }
 
-#comedy figure.face,
-#comedy summary.face {
+#comedy figure {
   background-image: url("o-captain.jpg");
   background-position: center;
+  border-radius: 50%;
 }
 
-/* targets all except second within <main> */
+#comedy hr {
+  margin: 25px 0;
+}
+/* remove <hr>s after <header> and <main> */
 #comedy hr:first-of-type {
   display: none;
 }
 
 #comedy header,
-#comedy header figure,
-#comedy hr {
+#comedy figure,
+#comedy hr,
+#comedy.js aside p {
+  border-style: solid;
   border-color: #8d3e33; /* maroon */
 }
 #comedy header {
   position: relative;
-  margin: 10.5rem -1rem 0;
-  padding: 1rem 1rem 0;
+  margin: 170px -8px 0;
+  padding: 15px 15px 0;
   border-style: solid none;
-  border-width: 0.2rem;
+  border-width: 3px;
   font-size: 1.1em;
 }
-@media screen and (min-width: 52em) {
+@media screen and (min-width: 830px) {
   #comedy header {
     border-style: solid;
-    border-radius: 1rem;
+    border-radius: 15px;
   }
 }
 #comedy header figure {
+  margin: 0;
   position: absolute;
   top: 0; left: 50%;
-  width: 10rem;
-  height: 10rem;
-  transform: translate(-5rem, -9.5rem);
-  margin: 0;
-  border-style: solid;
-  border-width: 0.3rem;
-  border-radius: 50%;
-  background-size: 120%;
+  width: 160px;
+  height: 160px;
+  transform: translate(-80px, -150px);
+  background-size: 130%;
+  border-width: 5px;
 }
 #comedy header em {
   font-style: normal;
@@ -141,7 +144,7 @@ main#comedy header,
 
 #comedy article {
   font-family: "Roboto Slab", serif;
-  margin: 0 0.5rem;
+  margin: 0 8px;
 }
 /* [redacted] blackout */
 #comedy article mark {
@@ -151,37 +154,37 @@ main#comedy header,
 #comedy article a {
   vertical-align: baseline;
   position: relative;
-  top: -0.3em;
+  top: -5px;
   font-size: 0.8em;
 }
 
-
-
-/* when javascript kicks in, it adds a .js class to main; the following is only for if javascript kicks in
-.js details.note {
+/* when javascript kicks in */
+#comedy.js hr {
+  display: none;
+}
+#comedy.js aside {
   display: inline-block;
   position: relative;
+  height: 8px;
+  width: 24px;
 }
-/* overwritten for top 
-.js .face {
+#comedy.js aside p, 
+#comedy.js aside figure {
+  margin: 0;
   position: absolute;
-  top: 0; left: 0; 
+  top: -12.8px;
+  left: -3.2px;
+  width: 24px;
+  height: 24px;
+  border-width: 1.5px;
 }
-@keyframes open {
-  0% {opacity: 0; margin-left: -20px}
-  100% {opacity: 1; margin-left: 0px}
+#comedy.js aside p {
+  border-radius: 12px;
+  background-color: rgba(255,255,255,0.9);
+  overflow: hidden;
 }
-/* everything after summary in details 
-.js details[open] summary ~ * {
-  animation: open .5s ease-in-out;
+#comedy.js aside figure {
+  background-size: 300%;
 }
-.js details {
-  border: 0.2rem solid #8d3e33;
-  border-radius: 10px;
-  padding: 0 1rem;
-}
-/* summary.face and div.face
-.js .face {
-  width: 2rem;
-  height: 2rem;
-}
+
+

@@ -170,18 +170,23 @@ main#comedy header,
 }
 #comedy.js aside p, 
 #comedy.js aside figure {
+  box-sizing: border-box;
   margin: 0;
   position: absolute;
-  top: -12.8px;
-  left: -3.2px;
+  top: -13px;
+  left: -3px;
   width: 24px;
   height: 24px;
   border-width: 1.5px;
 }
 #comedy.js aside p {
-  border-radius: 12px;
+  border-radius: 22px;
   background-color: rgba(255,255,255,0.9);
   overflow: hidden;
+  padding: 10px;
+}
+#comedy.js aside.open p {
+  padding-left: 40px;
 }
 #comedy.js aside figure {
   background-size: 300%;
